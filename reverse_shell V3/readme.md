@@ -1,6 +1,6 @@
 # Python Socket Reverse Shell Version 3 
 <style>
-  span {background:yellow}
+  span {background:yellow;}
   </style>
 <h3>Features ::</h3>
 <ul>
