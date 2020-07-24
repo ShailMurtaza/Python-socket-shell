@@ -38,7 +38,7 @@ def recvall(s):
 def connection():
     username = str(environ.get('USERNAME'))
     s = socket()
-    host = "192.168.0.20"
+    host = "127.0.0.1"
     port = 9090
     s.connect((host, port))
 	##################################################################
