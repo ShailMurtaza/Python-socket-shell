@@ -9,4 +9,10 @@
 </ul>
 <hr color=red>
 <h3>Some Help ::</h3>
-To upload file to client computer you will have to follow this format: <b>upload  file_path_with_name,,file_path_with_name_to_save_in_server</b>
+To upload file to client computer you will have to follow this format:<br>
+<b>upload  file_path_with_name,,file_path_with_name_to_save_in_client</b><br>
+<h1>For Example.,</h1>
+I wants to upload a file named file.txt which is in C:/users/ path in current working directory of client then I wil use:<br>
+<b>upload,,C:/users/file.txt,,file.txt</b>
+If I wants to upload this file to C:/ drive of client then i will use: <br>
+<b>upload,,C:/users/file.txt,,C:/file.txt</b>
