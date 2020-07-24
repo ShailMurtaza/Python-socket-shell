@@ -8,3 +8,5 @@
   <li>You can take screenshot of client computer using <b>"screenshot"</b> command.</li>
 </ul>
 <hr color=red>
+<h3>Some Help ::</h3>
+To upload file to client computer you will have to follow this format: <b>upload  file_path_with_name,,file_path_with_name_to_save_in_server</b>
