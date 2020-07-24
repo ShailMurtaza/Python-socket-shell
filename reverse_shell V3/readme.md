@@ -29,4 +29,8 @@ If I wants to download this file to C:/ drive in my computer then i will use: <b
 If file is in current working directory of client computer then I can use : <br>
 <b>download,,file.txt,,C:/file.txt</b>
 
-<h4>How to take screenshot of client computer?</h4>
+<h2>How to take screenshot of client computer?</h2>
+If I wants to take screeshot and save it with name screen.png thenn I can use: <br>
+<b>screenshot,,sreen</b>
+Else if I wants to save screenshot to my desktop then i can use this:
+<b>screenshot,,C:/users/your_user_name/desktop/screen</b>
