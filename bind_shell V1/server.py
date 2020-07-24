@@ -1,7 +1,7 @@
 from socket import socket
 from os import getcwd, chdir, environ
 from subprocess import Popen, PIPE
-username = environ.get('USERNAME')
+username = str(environ.get('USERNAME'))
 s = socket()
 host = ""
 port = 9090
