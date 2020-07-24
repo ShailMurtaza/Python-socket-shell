@@ -18,7 +18,7 @@ I wants to upload a file named file.txt which is in C:/users/ path in current wo
 If I wants to upload this file to C:/ drive of client then i will use: <br>
 <b>upload,,C:/users/file.txt,,C:/file.txt</b> <br>
 
-<h4>How to download files from client computer?</h4>
+<h2>How to download files from client computer?</h2>
 I wants to download a file named file.txt which is in C:/users/ path in current working directory of my computer then I wil use: <br>
 <b>download,,C:/users/file.txt,,file.txt</b> <br>
 If I wants to download this file to C:/ drive in my computer then i will use: <br>
