@@ -4,6 +4,13 @@ import readline
 from socket import socket, error
 
 
+# Function used for adding header to data which tells
+# that what is length of comming data 
+# format == [length of data under 10] + encrpted command
+# It means you can send 9999999999 bytes or 9.9 GB of data
+# For large data you can change size in my case it is 10
+# If you change size then don't forget to change this size in server side script
+# And also don't forget to change in "recvall()" function
 def add_header(data):
 	data = "{:<10}".format(len(data)) + data
 	return data
