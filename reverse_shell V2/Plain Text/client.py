@@ -5,7 +5,7 @@ from time import sleep
 
 
 def connection():
-    username = environ.get('USERNAME')
+    username = str(environ.get('USERNAME'))
     s = socket()
     host = "127.0.0.1"
     port = 9090
