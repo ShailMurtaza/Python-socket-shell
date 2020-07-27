@@ -1,6 +1,7 @@
 from __future__ import print_function
 from time import sleep
-import readline
+# import readline module when using linux. This will be usefull during typing commands
+# import readline
 from socket import socket, error
 
 
