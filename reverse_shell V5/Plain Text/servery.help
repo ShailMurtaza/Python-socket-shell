@@ -1,0 +1,23 @@
++------------------------------------------------------------------------------------------------+
+| list		-->>	list command will print list of connected clients in terminal            |
+|			(SYNTAX of list) -->> list                                               |
+|			list command will also return [index] of clients wich can be             |
+|			used in other commands (like use and close)                              |
+|                                                                                                |
+| use		-->>	use command can be used to use a client connected with your server       |
+|			with its index                                                           |
+|			(SYNTAX of use) -->> use [index], use [index] (without brackets)         |
+|                                                                                                |
+| close		-->>	close command can be used to disconneect a client from your server       |
+|			with its index                                                           |
+|			(SYNTAX of close) -->> close [index], close [index] (without brackets)   |
+|                                                                                                |
+| clear & cls	-->>	clear or cls can be used to clear console                                |
+|                                                                                                |
+| listen	-->>	listen can be used to start listening for a host                         |
+|			(SYNTAX OF listen) -->> listen [host or ip:port] (without brackets)      |
+|			(EXAMPLE) -->> to listen on port 9090 with any host -->> listen :9090    |
+|                                                                                                |
+| client	-->>	client can be used to create client file which will connect to your      |
+|			server                                                                   |
++------------------------------------------------------------------------------------------------+
